@@ -28,7 +28,7 @@ public class SwaggerConfig {
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.consumes(getConsumeContentTypes()).produces(getProduceContentTypes())
-				.host("commerce.single.com:8080")
+				//.host("commerce.single.com:8080")
 				.apiInfo(getApiInfo()).select()
 				.apis(RequestHandlerSelectors.any()).paths(PathSelectors.ant("/rest/**")) // 그 중 /rest/** 인 URL들만 필터링
 				.build()
