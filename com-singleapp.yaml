@@ -14,7 +14,6 @@ spec:
   selector:
     matchLabels:
       app: com-singleapp
-      version: v1
   template:
     metadata:
       annotations:
@@ -22,7 +21,6 @@ spec:
         sidecar.istio.io/inject: "false"
       labels:
         app: com-singleapp
-        version: v1
     spec:
       containers:
       - image: 192.168.100.12/uni-edu/commerce-single:v2
