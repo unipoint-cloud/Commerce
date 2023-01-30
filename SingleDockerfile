@@ -1,0 +1,16 @@
+FROM gradle:7.1.0-jdk11
+USER root
+
+RUN useradd -ms /bin/bash uni
+RUN rm -rf /app
+RUN mkdir -p /app
+RUN chown -R uni:uni /app
+
+RUN cd /app
+RUN git clone https://github.com/unipoint-cloud/Commerce.git /app/Commerce
+
+WORKDIR /app/Commerce
+
+RUN gradle build
+
+CMD ["java", "-jar", "/app/Commerce/build/libs/Commerce_v3-0.0.1-SNAPSHOT.jar"]
